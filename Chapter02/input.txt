@@ -1,0 +1,8 @@
+input.txt 받아서 output.txt 출력
+
+output에서는 input 그대로 출력하고 평균도 출력
+
+input에는 
+이름 나이 키 중간 기말 수행
+
+chnutil로 하라 함
