@@ -6,7 +6,7 @@ public class Chnutil {
         FileOutput outFile = new FileOutput("output.txt", "append");
 
         String[] str = scoreCalc(inFile).split("\\s+");
-        int score = Integer.parseInt(str[2])*3/10 + Integer.parseInt(str[3])*3/10 + Integer.parseInt(str[4])*3/10;     
+        int score = Integer.parseInt(str[2])*3/10 + Integer.parseInt(str[3])*3/10 + Integer.parseInt(str[4])*4/10;     
 
         printScore(outFile, str, score);
         outFile.close();
