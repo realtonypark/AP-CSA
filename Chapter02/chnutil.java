@@ -4,6 +4,11 @@ public class Chnutil {
     public static void main(String[] args){
         FileInput inFile = new FileInput("input.txt");
         FileOutput outFile = new FileOutput("output.txt", "append");
+        
+        int num = Integer.parseInt(inFile.readLine());
+        double midScore = 0.0;
+        double finalScore = 0.0;
+        double performScore = 0.0;
 
         String[] str = scoreCalc(inFile).split("\\s+");
         int score = Integer.parseInt(str[2])*3/10 + Integer.parseInt(str[3])*3/10 + Integer.parseInt(str[4])*4/10;     
