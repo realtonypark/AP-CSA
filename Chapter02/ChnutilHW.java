@@ -6,8 +6,14 @@ public class ChnutilHW{
         FileOutput outFile = new FileOutput("outputHW.txt", "append");
         
         int num = Integer.parseInt(inFile.readLine());
-        String[] name = new String[num];
-        double[] score = new double[num];
+        //String[] name = new String[num];
+        //double[] score = new double[num];
+        System.out.println(num);
+
+        for(int i=0; i<num; i++){
+            outFile.println(readFile(inFile, num)[i]);
+        }
+
         double midScore = 0.0;
         double finalScore = 0.0;
         double performScore = 0.0;
@@ -17,6 +23,7 @@ public class ChnutilHW{
         double performSD = 0.0;
         double allSD = 0.0;
 
+        /*
         for(int i = 0; i < num; i++)    outFile.println("이름: ", name[i], ", 최종 점수: ", score[i]);
         outFile.println("중간고사 평균: ", midScore, "중간고사 표준편차: ", midSD);
         outFile.println("기말고사 평균: ", finalScore, "기말고사 표준편자: ", finalSD);
@@ -27,20 +34,18 @@ public class ChnutilHW{
         int score = Integer.parseInt(str[2])*3/10 + Integer.parseInt(str[3])*3/10 + Integer.parseInt(str[4])*4/10;     
 
         printScore(outFile, str, score);
+        */
         outFile.close();
         inFile.close();
     }
 
-    public static String readFile(FileInput in){
-        in 
-        String scores = "";
-        scores = inScores.readLine();
-        return scores;
-
-        int score = Integer.parseInt(str[2])*3/10 + Integer.parseInt(str[3])*3/10 + Integer.parseInt(str[4])*4/10;     
-
+    public static String[] readFile(FileInput in, int n){
+        String[] name = new String[n];
+        name[i] = in.readLine();
+        return name;
+        //int score = Integer.parseInt(str[2])*3/10 + Integer.parseInt(str[3])*3/10 + Integer.parseInt(str[4])*4/10;     
     }
-
+    /*
     public static String scoreCalc(FileInput inScores){
         String scores = "";
         scores = inScores.readLine();
@@ -55,6 +60,7 @@ public class ChnutilHW{
         outScores.println("나이: " + str[1]);
         outScores.println("점수: " + score);
     }
+    */
 }
 
 /*
