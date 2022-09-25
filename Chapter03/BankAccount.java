@@ -6,20 +6,23 @@ public class BankAccount{
 
     //constructors
     public BankAccount(){ 
-        password = "";
-        balance = 0.0;
+        this.password = "";
+        this.balance = 0.0;
     }
 
     public BankAccount(String acctPassword, double acctBalance){
-        password = acctPassword;
-        balance = acctBalance;
+        this.password = acctPassword;
+        this.balance = acctBalance;
     }
 
     //accessor
     public double getBalance(){
-        return balance;
+        return this.balance;
     }
 
+    public String getPassword(){
+        return this.password;
+    }
     //modifiers
     public void deposit(String acctPassword, double amount){
         /* 
@@ -62,9 +65,33 @@ public class BankAccount{
             }
         }
     }
-
-    public static void choooseBestAccount(){
-        
+    public static void chargeFee(BankAccount b, String password, double fee){
+        final double MAX_VALUE = 1000.00;
+        if(b.getBalance() < MAX_VALUE){
+            b.withdraw(password, fee);
+        }
     }
-        
+    public static BankAccount choooseBestAccount(BankAccount ba1, BankAccount ba2){
+        // BankAccount better = null;
+        if(ba1.getBalance() < ba2.getBalance()){
+            // better = ba2;
+            return ba2;
+        }
+        else{
+            // better = ba1;
+            return ba1;
+        }
+        // return better;
+    }
+
+    public static BankAccount choooseBestAccount2(BankAccount ba1, BankAccount ba2){
+        BankAccount better = null;
+        if(ba1.getBalance() < ba2.getBalance()){
+            better = new BankAccount(ba2.getPassword(),ba2.getBalance());
+        }
+        else{
+            better = new BankAccount(ba1.getPassword(),ba1.getBalance());
+        }
+        return better;
+    }
 }
