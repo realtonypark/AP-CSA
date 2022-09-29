@@ -1,6 +1,6 @@
-import java.lang.Math;
+public class AddMatrix {
+    // add(), subtract(), evaluate()
 
-public class MyMatrix{
     // attributes
     public String myName;
     public int myRows;

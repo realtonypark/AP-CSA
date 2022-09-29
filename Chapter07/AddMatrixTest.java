@@ -1,4 +1,4 @@
-public class MyMatrixTest {
+public class AddMatrixTest {
     public static void main(String[] args){
         MyMatrix matA = new MyMatrix();
         MyMatrix matB = new MyMatrix("B", 4, 8);
