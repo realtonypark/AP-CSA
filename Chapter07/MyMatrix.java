@@ -1,5 +1,5 @@
 import java.lang.Math;
-
+import java.util.*;
 public class MyMatrix{
     // attributes
     public String myName;
@@ -36,9 +36,10 @@ public class MyMatrix{
     
     public void initializeRandom(double min, double max){
         // element 값을 랜덤으로 채우기
+        Random r = new Random();
         for(int i = 0; i < myRows; i++){
             for(int j = 0; j < myCols; j++){
-                myElements[i][j] = (int) (Math.random() * (max - min)) + min;
+                myElements[i][j] = min + (max - min) * r.nextDouble();
             }
         }
     }
@@ -56,7 +57,7 @@ public class MyMatrix{
     public void printMatrix(){
         for(int i = 0; i < this.myRows; i++){
             for(int j = 0; j < this.myCols; j++){
-                System.out.print(this.myElements[i][j]+ " ");
+                System.out.print(Math.round(this.myElements[i][j]*100)/100.0+ " ");
             }
             System.out.println();
         }

@@ -1,3 +1,5 @@
+import java.lang.Math;
+import java.util.*;
 public class CalcMatrix {
     // add(), subtract(), evaluate()
 
@@ -10,8 +12,8 @@ public class CalcMatrix {
     //constructors
     public CalcMatrix(){
         myName = "Matrix";
-        myRows = 10;
-        myCols = 10;
+        myRows = 5;
+        myCols = 5;
         myElements = new double[myRows][myCols];
     }
 
@@ -31,9 +33,10 @@ public class CalcMatrix {
     //methods
     public void initializeRandom(double min, double max){
         // element 값을 랜덤으로 채우기
+        Random r = new Random();
         for(int i = 0; i < myRows; i++){
             for(int j = 0; j < myCols; j++){
-                myElements[i][j] = (int) (Math.random() * (max - min)) + min;
+                myElements[i][j] = min + (max - min) * r.nextDouble();
             }
         }
     }
@@ -47,42 +50,44 @@ public class CalcMatrix {
         }
     }
 
-    public static void add(CalcMatrix matrix1, CalcMatrix matrix2){
-        CalcMatrix addedMat = new CalcMatrix(matrix1.myName+"+"+matrix2.myName, matrix1.myRows, matrix1.myCols);
-        if(matrix1.myRows == matrix2.myRows && matrix1.myCols == matrix2.myCols){
+    public void add(CalcMatrix matrix){
+        CalcMatrix addedMat = new CalcMatrix(this.myName+"+"+matrix.myName, this.myRows, this.myCols);
+        if(this.myRows == matrix.myRows && this.myCols == matrix.myCols){
             for(int i = 0; i < addedMat.myRows; i++){
                 for(int j = 0; j < addedMat.myCols; j++){
-                    addedMat.myElements[i][j] = matrix1.myElements[i][j] + matrix2.myElements[i][j];
+                    addedMat.myElements[i][j] = this.myElements[i][j] + matrix.myElements[i][j];
                 }
             }
+            addedMat.printMatrix();
         }
         else System.exit(0);
     }
 
-    public static void subtract(CalcMatrix matrix1, CalcMatrix matrix2){
-        CalcMatrix subtractedMat = new CalcMatrix(matrix1.myName+"+"+matrix2.myName, matrix1.myRows, matrix1.myCols);
-        if(matrix1.myRows == matrix2.myRows && matrix1.myCols == matrix2.myCols){
+    public void subtract(CalcMatrix matrix){
+        CalcMatrix subtractedMat = new CalcMatrix(this.myName+"-"+matrix.myName, this.myRows, matrix.myCols);
+        if(this.myRows == matrix.myRows && this.myCols == matrix.myCols){
             for(int i = 0; i < subtractedMat.myRows; i++){
                 for(int j = 0; j < subtractedMat.myCols; j++){
-                    subtractedMat.myElements[i][j] = matrix1.myElements[i][j] - matrix2.myElements[i][j];
+                    subtractedMat.myElements[i][j] = this.myElements[i][j] - matrix.myElements[i][j];
                 }
             }
+            subtractedMat.printMatrix();
         }
         else System.exit(0);
     }
 
     public void evaluate(){
-
+        
     }
 
     //toString 메소드 오버라이딩은 불편하니까 그냥 print 메소드 만들어서 출력하기
-    public static void printMatrix(CalcMatrix matrix){
-        for(int i = 0; i < matrix.myRows; i++){
-            for(int j = 0; j < matrix.myCols; j++){
-                System.out.print(matrix.myElements[i][j]+ " ");
+    public void printMatrix(){
+        for(int i = 0; i < this.myRows; i++){
+            for(int j = 0; j < this.myCols; j++){
+                System.out.print(Math.round(this.myElements[i][j]*100)/100.0+ " ");
             }
             System.out.println();
         }
-        System.out.println(matrix.myName + "\n" + matrix.myRows + "X" + matrix.myCols);
+        System.out.println(this.myName + "\n" + this.myRows + "X" + this.myCols+"\n");
     }
 }

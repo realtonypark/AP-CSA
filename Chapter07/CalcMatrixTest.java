@@ -5,11 +5,13 @@ public class CalcMatrixTest {
         CalcMatrix matC = new CalcMatrix("C", 5, 5);
     
         matB.initializeRandom(-10, 10);
+        matB.printMatrix();
         matC.initializeOnes();
+        matC.printMatrix();
 
-        CalcMatrix.add(matB, matC);
-        CalcMatrix.subtract(matB, matC);
-        
+        matB.add(matC);
+        matA.subtract(matB);
+
         
     }
 }
