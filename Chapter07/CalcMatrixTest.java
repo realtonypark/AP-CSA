@@ -9,8 +9,8 @@ public class CalcMatrixTest {
         matC.initializeOnes();
         matC.printMatrix();
 
-        matB.add(matC);
-        matA.subtract(matB);
+        (matB.add(matC)).printMatrix();
+        (matA.subtract(matB)).printMatrix();
 
         
     }

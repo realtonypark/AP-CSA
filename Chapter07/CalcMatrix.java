@@ -50,7 +50,7 @@ public class CalcMatrix {
         }
     }
 
-    public void add(CalcMatrix matrix){
+    public CalcMatrix add(CalcMatrix matrix){
         CalcMatrix addedMat = new CalcMatrix(this.myName+"+"+matrix.myName, this.myRows, this.myCols);
         if(this.myRows == matrix.myRows && this.myCols == matrix.myCols){
             for(int i = 0; i < addedMat.myRows; i++){
@@ -58,12 +58,13 @@ public class CalcMatrix {
                     addedMat.myElements[i][j] = this.myElements[i][j] + matrix.myElements[i][j];
                 }
             }
-            addedMat.printMatrix();
+            //addedMat.printMatrix();
         }
         else System.exit(0);
+        return addedMat;
     }
 
-    public void subtract(CalcMatrix matrix){
+    public CalcMatrix subtract(CalcMatrix matrix){
         CalcMatrix subtractedMat = new CalcMatrix(this.myName+"-"+matrix.myName, this.myRows, matrix.myCols);
         if(this.myRows == matrix.myRows && this.myCols == matrix.myCols){
             for(int i = 0; i < subtractedMat.myRows; i++){
@@ -71,13 +72,14 @@ public class CalcMatrix {
                     subtractedMat.myElements[i][j] = this.myElements[i][j] - matrix.myElements[i][j];
                 }
             }
-            subtractedMat.printMatrix();
+            //subtractedMat.printMatrix();
         }
         else System.exit(0);
+        return subtractedMat;
     }
 
-    public void evaluate(){
-        
+    public static void evaluate(CalcMatrix matrix1, CalcMatrix matrix2){
+        // 에러? 표준편차? 에러의 평균? 무슨 에러? 못 들음ㅜㅜㅜ
     }
 
     //toString 메소드 오버라이딩은 불편하니까 그냥 print 메소드 만들어서 출력하기
