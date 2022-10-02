@@ -18,7 +18,7 @@ public class GradStudent extends Student{
     {
         return gradID;
     }
-
+    
     public void computeGrade()
     {
         //invokes computeGrade in Student superclass
@@ -26,4 +26,5 @@ public class GradStudent extends Student{
         if(getTestAverage() > 90)
             setGrade("Pass with distinction");
     }
+    
 }
