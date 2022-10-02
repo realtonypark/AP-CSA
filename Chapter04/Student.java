@@ -23,7 +23,7 @@ public class Student{
         return name;
     }
 
-    public String getGrade(String newGrade){
+    public String getGrade(){
         return grade;
     }
 
@@ -46,5 +46,4 @@ public class Student{
             total += score;
         return total / NUM_TESTS;
     }
-
 }
