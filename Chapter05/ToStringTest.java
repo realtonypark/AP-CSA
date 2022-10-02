@@ -29,6 +29,6 @@ class ToStringTest{
         System.out.println(p2.toString());
         System.out.println(p2);
         
-        //p1.toString() 과 p1과 차이 없음 (object를 출력하려 하면 자동으로 toString()메소드가 invoke 되기 때문에)
+        //p1.toString() 과 p1은 차이 없이 equivalent함 (object를 출력하려 하면 자동으로 toString()메소드가 invoke 되기 때문에)
     }
 }
