@@ -6,6 +6,12 @@ public class StudentTest {
         
         //4번 line은 Student object이므로 getID() 메소드 사용할 수 없음
         //5번 line은 GradStudent object이므로 getID() 메소드 사용할 수 있음
+        //--> downcasting 을 통해서 문제 해결!
+
+        /*
+         * Student g = new GradStudent("Kevin", new int[] {95, 100, 90}, "none", 1234);
+         * int num = ((GradStudent) g).get
+         */
 
         System.out.println(g.getName());
         System.out.println(g.getID());
