@@ -1,7 +1,8 @@
 import java.lang.Math;
 import java.util.*;
+
 public class CalcMatrix {
-    // add(), subtract(), evaluate()
+    // add(), subtract(), evaluate() 메소드를 사용해서 matrix calucalation
 
     // attributes
     public String myName;
@@ -50,6 +51,7 @@ public class CalcMatrix {
         }
     }
 
+    // Matrix의 합
     public CalcMatrix add(CalcMatrix matrix){
         CalcMatrix addedMat = new CalcMatrix(this.myName+"+"+matrix.myName, this.myRows, this.myCols);
         if(this.myRows == matrix.myRows && this.myCols == matrix.myCols){
@@ -64,6 +66,7 @@ public class CalcMatrix {
         return addedMat;
     }
 
+    // Matrix의 차
     public CalcMatrix subtract(CalcMatrix matrix){
         CalcMatrix subtractedMat = new CalcMatrix(this.myName+"-"+matrix.myName, this.myRows, matrix.myCols);
         if(this.myRows == matrix.myRows && this.myCols == matrix.myCols){
@@ -78,6 +81,7 @@ public class CalcMatrix {
         return subtractedMat;
     }
 
+    // Matrix 계산 evaluation
     public static void evaluate(CalcMatrix matrix1, CalcMatrix matrix2){
         // 에러? 표준편차? 에러의 평균? 무슨 에러? 못 들음ㅜㅜㅜ
     }
