@@ -11,7 +11,7 @@ public class Deck {
 
     //Write contents of Deck.
     public void writeDeck() {
-        for(int card : deck) 
+        for(int card : deck)
             System.out.print(card + " ");
         System.out.println();
         System.out.println();
@@ -20,7 +20,7 @@ public class Deck {
     // Swap arr[i] and arr[j] in array arr. 
     private void swap(int[] arr, int i, int j){
         int temp = arr[j];
-        arr[i] = arra[j];
+        arr[i] = arr[j];
         arr[j] = temp;
     }
 

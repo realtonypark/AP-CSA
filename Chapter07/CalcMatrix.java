@@ -1,7 +1,7 @@
 import java.lang.Math;
 import java.util.*;
 
-// 전반적으로 Matrix 코드들이 너무 길고 효좌적이지 않은 것 같음. 다른 방식으로 코드 짜보고 정석적인 코드도 참고해보기
+// 전반적으로 Matrix 코드들이 너무 길고 효좌적이지 않은 것 같음. 다른 방식으로 코드 짜보고 정석적인 코드도 참고해보기.
 
 public class CalcMatrix {
     // add(), subtract(), evaluate() 메소드를 사용해서 matrix calucalation
