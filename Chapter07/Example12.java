@@ -25,6 +25,7 @@ public class Example12{
             for(int i = min; i < max; i++)
                 prodArr[i] = list.get(i);
         }
+        
         else
         {
             int min = list.size();
