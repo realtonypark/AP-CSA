@@ -8,6 +8,6 @@ public class Examples {
         System.out.println(str1==str2); //true
         System.out.println(str1==str3); //false
         System.out.println(str1.equals(str2)); // true
-        System.out.println(str1.equals(str3)); //false
+        System.out.println(str1.equals(str3)); //true
     }
 }
