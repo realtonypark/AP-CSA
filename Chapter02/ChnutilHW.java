@@ -1,6 +1,12 @@
 import chn.util.*;
 import java.lang.Math;
 
+/*
+<How to run the Source Code using Chnutil.jar>
+javac -cp chnutil.jar chnutil.java
+java -cp chnutil.jar chnutil.java
+*/
+
 public class ChnutilHW{
     public static void main(String[] args){
         FileInput inFile = new FileInput("inputHW.txt");
@@ -81,8 +87,3 @@ public class ChnutilHW{
         out.println("최종 점수 표준편차: "+ Math.round(allSD*100)/100.0);
     }
 }
-/*
-<How to run the Chnutil>
-javac -cp chnutil.jar chnutil.java
-java -cp chnutil.jar chnutil.java
-*/
