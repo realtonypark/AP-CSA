@@ -1,16 +1,20 @@
 public class CalcMatrixTest {
     public static void main(String[] args){
-        CalcMatrix matD = new CalcMatrix("D", 3, 3);
-        CalcMatrix matE = new CalcMatrix("E", 3, 3);
+        CalcMatrix matA = new CalcMatrix("A", 2, 4);
+        CalcMatrix matB = new CalcMatrix("B", 4, 3);
+        CalcMatrix matC = new CalcMatrix("C", 3, 3);
+        CalcMatrix b = new CalcMatrix("b", 3, 1);
+        
 
-        //matD.identityMatrix();
-        //matE.identityMatrix();
-        matD.initializeRandom(1, 7);
-        matE.initializeRandom(1, 7);
-        matD.printMatrix();
-        matE.printMatrix();
+        matA.initializeRandom(-5, 5);
+        matB.initializeRandom(-5, 5);
+        matA.printMatrix();
+        matB.printMatrix();
+        (matA.multiply(matB)).printMatrix();
 
-        (matD.multiply(matE)).printMatrix();
+        matC.initializeRandom(-5, 5);
+        b.initializeRandom(-5, 5);
+        (matC.multiply(b)).printMatrix();
     }
 }
 /*

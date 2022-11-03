@@ -56,30 +56,63 @@ public class CalcMatrix {
             }
         }
     }
+    // Guassian Elemination
+    public CalcMatrix gebs(CalcMatrix ab){
+        int N = ab.myRows;
+        for (int k = 0; k < N; k++) 
+        {
+            /** find pivot row **/
+            int max = k;
+            for (int i = k + 1; i < N; i++) 
+                if (Math.abs(this.myElements[i][k]) > Math.abs(this.myElements[max][k])) 
+                    max = i;
+ 
+            /** swap row in A matrix **/    
+            int[] temp = this.myElements[k]; 
+            this.myElements[k] = this.myElements[max]; 
+            this.myElements[max] = temp;
+ 
+            /** swap corresponding values in constants matrix **/
+            int t = ab.myElements[k]; 
+            ab.myElements[k] = ab.myElements[max]; 
+            ab.myElements[max] = t;
+ 
+            /** pivot within A and B **/
+            for (int i = k + 1; i < N; i++) 
+            {
+                int factor = this.myElements[i][k] / this.myElements[k][k];
+                ab.myElements[i] -= factor * ab.myElements[k]; // 에러 나는 이유?
+                for (int j = k; j < N; j++) 
+                    this.myElements[i][j] -= factor * this.myElements[k][j];
+            }
+        }
+    }
 
-    // Matrix의 곱(Matrix Multiplication) - 기말범위 --> 행렬의 곱셈 코드 이해하기
+    // Back Substitution
+
+    // Guassian Elemination & Back Substitution Verification (검산 - 에러의 표준편차, 평균 등...)
+
+
+    // Matrix의 곱(Matrix Multiplication)
     public CalcMatrix multiply(CalcMatrix matrix){
         CalcMatrix mulMat = new CalcMatrix(this.myName+"X"+matrix.myName, this.myRows, matrix.myCols);
         if(this.myCols == matrix.myRows){
-            for(int i=0;i<this.myRows;i++){    
-                for(int j=0;j<this.myRows;j++){    
+            for(int i=0;i<this.myRows;i++){
+                for(int j=0;j<this.myCols;j++){    
                     for(int k=0;k<matrix.myCols;k++){
-                        mulMat.myElements[i][j] += this.myElements[i][k] * matrix.myElements[k][j];
+                        mulMat.myElements[i][k] += this.myElements[i][j] * matrix.myElements[j][k];
                     }
                 }    
             }
         }
         else System.exit(0);
         return mulMat;
+        //질문: CalcMatrix mulMat = new CalcMatrix(this.myName+"X"+matrix.myName, this.myCols, matrix.myRows); 이 코드를 if문 안에 쓰는게 논리적으로 맞지만 그러면 return도 if문 안에 넣게 되는데?
     }
 
-    // Matrix 곱 검산 - identity matrix 사용 - 아직 안 함. 하기.
+    // Matrix 곱 검산 - identity matrix 사용?
 
-    // Matrix의 Guassian Elemination & Back Substitution
-    public CalcMatrix GaussianElimination(){
-        
-    }
-
+    
     // Matrix의 합
     public CalcMatrix add(CalcMatrix matrix){
         CalcMatrix addedMat = new CalcMatrix(this.myName+"+"+matrix.myName, this.myRows, this.myCols);
