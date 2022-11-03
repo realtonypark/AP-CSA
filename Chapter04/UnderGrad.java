@@ -18,6 +18,4 @@ public class UnderGrad extends Student
         else    
             setGrade("Fail");
     }
-    
-
 }

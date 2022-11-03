@@ -20,12 +20,13 @@ public class MyMatrix{
         myRows = rows;
         myCols = cols;
         myElements = new double[myRows][myCols];
-
+        /*
         for(int i = 0; i < myRows; i++){
             for(int j = 0; j < myCols; j++){
                 myElements[i][j] = 0;
             }
         }
+        */
     }
 
     //methods

@@ -1,4 +1,4 @@
-public class StudentTest2 {
+public class StudentTest2{
     public static void computeAllGrades(Student[] studentList){
         for (Student s : studentList){
             if(s != null)
@@ -14,8 +14,8 @@ public class StudentTest2 {
 
         computeAllGrades(stu);
         System.out.println(stu[0].getGrade());
-        System.out.println(stu[0].getGrade());
-        System.out.println(stu[0].getGrade());
+        System.out.println(stu[1].getGrade());
+        System.out.println(stu[2].getGrade());
         // System.out.println(stu[2].getID()); --> object가 GradStudent가 아닌 Student이므로 getID() 메소드 사용할 수 없음!
     }
 }
