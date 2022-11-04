@@ -6,21 +6,21 @@ public class CalcMatrix {
     public String myName;
     public int myRows;
     public int myCols;
-    public int[][] myElements;
+    public double[][] myElements;
 
     //constructors
     public CalcMatrix(){
         myName = "Matrix";
         myRows = 5;
         myCols = 5;
-        myElements = new int[myRows][myCols];
+        myElements = new double[myRows][myCols];
     }
 
     public CalcMatrix(String name, int rows, int cols){
         myName = name;
         myRows = rows;
         myCols = cols;
-        myElements = new int[myRows][myCols];
+        myElements = new double[myRows][myCols];
 
         for(int i = 0; i < myRows; i++){
             for(int j = 0; j < myCols; j++){
@@ -56,42 +56,67 @@ public class CalcMatrix {
             }
         }
     }
-    // Guassian Elemination
-    public CalcMatrix gebs(CalcMatrix ab){
-        int N = ab.myRows;
+    // Guassian Elemination and Back Substitution 
+    public void gebs(double[] B){
+        int N = B.length;
         for (int k = 0; k < N; k++) 
         {
-            /** find pivot row **/
+            // Find pivot row
             int max = k;
             for (int i = k + 1; i < N; i++) 
                 if (Math.abs(this.myElements[i][k]) > Math.abs(this.myElements[max][k])) 
                     max = i;
  
-            /** swap row in A matrix **/    
-            int[] temp = this.myElements[k]; 
+            // Swap row in A matrix
+            double[] temp = this.myElements[k]; 
             this.myElements[k] = this.myElements[max]; 
             this.myElements[max] = temp;
  
-            /** swap corresponding values in constants matrix **/
-            int t = ab.myElements[k]; 
-            ab.myElements[k] = ab.myElements[max]; 
-            ab.myElements[max] = t;
+            // Swap in B matrix
+            double t = B[k]; 
+            B[k] = B[max]; 
+            B[max] = t;
  
-            /** pivot within A and B **/
+            // Pivot within A and B
             for (int i = k + 1; i < N; i++) 
             {
-                int factor = this.myElements[i][k] / this.myElements[k][k];
-                ab.myElements[i] -= factor * ab.myElements[k]; // 에러 나는 이유?
+                double factor = this.myElements[i][k] / this.myElements[k][k];
+                B[i] -= factor * B[k];
                 for (int j = k; j < N; j++) 
                     this.myElements[i][j] -= factor * this.myElements[k][j];
             }
         }
+
+        //Print REF
+        int l = B.length;
+        System.out.println("\nRow Echelon form : ");
+        for (int i = 0; i < l; i++)
+           {
+               for (int j = 0; j < l; j++)
+                   System.out.printf("%.3f ", this.myElements[i][j]);
+               System.out.printf("| %.3f\n", B[i]);
+           }
+           System.out.println();
+
+        // Back Substitution 
+        double[] solution = new double[N];
+        for (int i = N - 1; i >= 0; i--) 
+        {
+            double sum = 0.0;
+            for (int j = i + 1; j < N; j++) 
+                sum += this.myElements[i][j] * solution[j];
+            solution[i] = (B[i] - sum) / this.myElements[i][i];
+        }        
+
+        // Print Solution
+        int le = solution.length;
+        System.out.println("\nSolution : ");
+        for (int i = 0; i < le; i++) 
+            System.out.printf("%.3f ", solution[i]);    
+        System.out.println();     
     }
 
-    // Back Substitution
-
     // Guassian Elemination & Back Substitution Verification (검산 - 에러의 표준편차, 평균 등...)
-
 
     // Matrix의 곱(Matrix Multiplication)
     public CalcMatrix multiply(CalcMatrix matrix){
