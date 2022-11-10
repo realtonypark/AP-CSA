@@ -67,12 +67,12 @@ public class CalcMatrix {
                 if (Math.abs(this.myElements[i][k]) > Math.abs(this.myElements[max][k])) 
                     max = i;
  
-            // Swap row in A matrix
+            // Swap rows in A matrix
             double[] temp = this.myElements[k]; 
             this.myElements[k] = this.myElements[max]; 
             this.myElements[max] = temp;
  
-            // Swap in B matrix
+            // Swap elements in B matrix
             double t = B[k]; 
             B[k] = B[max]; 
             B[max] = t;
@@ -113,7 +113,11 @@ public class CalcMatrix {
         System.out.println("\nSolution : ");
         for (int i = 0; i < le; i++) 
             System.out.printf("%.3f ", solution[i]);    
-        System.out.println();     
+        System.out.println();
+
+
+        // Guassian Elemination & Back Substitution Verification (검산 - 에러의 표준편차, 평균 등...)
+        
     }
 
     // Guassian Elemination & Back Substitution Verification (검산 - 에러의 표준편차, 평균 등...)
