@@ -1,6 +1,6 @@
-public class Example1 {
+public class Example1_311 {
     public static void main(String[] args){
-        Example1 Q = new Example1();
+        Example1_311 Q = new Example1_311();
         Q.drawLine(5);
     }
 
