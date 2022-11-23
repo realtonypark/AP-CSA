@@ -20,10 +20,10 @@ public class ColorGrid {
 
     public void paintRegion(int row, int col, String newColor, String oldColor){
         if (row>=0 && row < rows && col >= 0 && col<cols){
-            if(!pixels[row][col].equals(newColor) && pixels[row][cols].equals(oldColor)){
+            if(!pixels[row][col].equals(newColor) && pixels[row][col].equals(oldColor)){
                 pixels[row][col] = newColor;
-                paintRegion(row-1, col, newColor, oldColor);
                 paintRegion(row+1, col, newColor, oldColor);
+                paintRegion(row-1, col, newColor, oldColor);
                 paintRegion(row, col+1, newColor, oldColor);
                 paintRegion(row, col-1, newColor, oldColor);
             }
@@ -43,6 +43,7 @@ public class ColorGrid {
     public static void main(String[] args){
         ColorGrid myGrid = new ColorGrid("rrbgyybrbyrrggrrrbyrryrb", 4, 6);
         myGrid.display();
+        System.out.println();
         myGrid.paintRegion(2, 3, "b", "r");
         myGrid.display();
     }
