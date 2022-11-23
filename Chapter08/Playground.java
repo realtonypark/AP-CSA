@@ -1,40 +1,27 @@
 import java.util.Scanner;
-
 public class Playground {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        
-        while(sc.nextInt() >= 0){
-            int N = sc.nextInt();
-            N = (int) Math.pow(3, N);
-            char[] arr = new char[N];
-            for(int i = 0; i<N; i++){
-                arr[i] = '-';
-            }
-            
-            rec(arr, N);
-        }
+  static int N;
+  static int[][] a;
+  
+  public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    N = sc.nextInt();
+    a = new int[N][N];
+    rec(N);
+  }
+
+  public static void rec(int num){
+    if(num==1 ||) {
+        return;
     }
 
-    public static void rec(char[] list, int n) {
-        int sum = 0;
-        for(char i : list) {
-            if(i == '-') {
-                sum += 1;
-            }
-        }
-        if(sum==(int) Math.pow(3, n)){
-            for(int i = 0; i<list.length; i++){
-                System.out.print(i);
-            }
-            System.out.println();
-        }
-        else{
-            for(int i = sum / 3; i<(sum / 3)*2; i++){
-                list[i] = ' ';
-            }
-            rec(list, n);
-        }
-		
-	}
+        //중간꺼 공백으로 바꾸고
+    for(int i=start+length/3;i<start+length/3*2;i++) c[i] = ' ';
+
+
+        //첫번째거 세번째꺼 확인
+    dfs(start,length/3);
+
+    dfs(start+length/3*2,length/3);
+  }
 }
