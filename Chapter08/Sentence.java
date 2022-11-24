@@ -1,35 +1,49 @@
-import java.util.Scanner;
 public class Sentence {
-    //백준 25501번 - 재귀의 귀재
-    static int num;
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        for(int i=0; i<N; i++){
-            num = 0;
-            String s = sc.next();
-            System.out.print(isPalindrone(s) + " " + num);
-            System.out.println();
+    private String sentence;
+    private int numWords;
+
+    public Sentence(String str){
+        sentence = str;
+        numWords = 1;
+        int k = str.indexOf(" ");
+        while (k!=-1){
+            numWords++;
+            str = str.substring(k+1);
+            k = str.indexOf(" ");
         }
+        //sentence = removeAll(sentence);
     }
 
-    public static int isPalindrone(String s){
-      return rec(s, 0, s.length()-1);
+    public int getNumWords(){
+        return numWords;
     }
-    public static int rec(String q, int start, int end){
-        num++;
-        if(start>=end){
-            return 1;
+
+    public String getSentence(){
+        return sentence;
+    }
+
+    private static String removeAll(String s){
+        s = s.toLowerCase();
+        String result = "";
+        for(int i=0; i<s.length(); i++){  
+            if(s.charAt(i)>='a' && s.charAt(i)<='z') result += s.substring(i, i+1);
         }
+
+        return result;
+    }
+
+    public boolean isPalindrone(){
+        String temp = removeAll(sentence);
+        return isPalindrone(temp, 0, temp.length()-1);
+    }
+
+    public static boolean isPalindrone(String s, int start, int end){
+        if(start>=end) return true;
         else{
-            String first = q.substring(start, start+1);
-            String last = q.substring(end, end+1);
-            if (first.equals(last)){
-                return rec(q, start+1, end-1);
-            }
-            else
-                return 0;
+            String first = s.substring(start, start+1);
+            String last = s.substring(end, end+1);
+            if (first.equals(last)) return isPalindrone(s, start+1, end-1);
+            else return false;
         }
-
     }
 }
