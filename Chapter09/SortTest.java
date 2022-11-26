@@ -20,11 +20,20 @@ public class SortTest
 
 		randomInitialize(array, rand);
 		printArray(array);
+		System.out.println();
+
 		System.out.println("Selection Sort...");
-		//SelectionSort.sortAscending(array);
+		SelectionSort.sortAscending(array);
+		printArray(array);
 		SelectionSort.sortDescending(array);
 		printArray(array);
+		System.out.println();
 
+		System.out.println("Insertion Sort...");
+		InsertionSort.sortAscending(array);
+		printArray(array);
+		InsertionSort.sortDescending(array);
+		printArray(array);
 /*
 		randomInitialize(array, rand);
 		printArray(array);
