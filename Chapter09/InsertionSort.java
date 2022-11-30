@@ -15,10 +15,10 @@ public class InsertionSort
         */
 
         int size = a.length;
-        for (int step = 1; step < size; step++) 
+        for (int i = 1; i < size; i++) 
         {
-            int key = a[step];
-            int j = step - 1;
+            int key = a[i];
+            int j = i - 1;
 
             // Compare key with each element on the left of it until an element smaller than
             // it is found.

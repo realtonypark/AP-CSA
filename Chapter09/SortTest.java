@@ -34,6 +34,12 @@ public class SortTest
 		printArray(array);
 		InsertionSort.sortDescending(array);
 		printArray(array);
+
+		System.out.println("Merge Sort...");
+		MergeSort.sortAscending(array);
+		printArray(array);
+		IMergeSort.sortDescending(array);
+		printArray(array);
 /*
 		randomInitialize(array, rand);
 		printArray(array);
@@ -43,7 +49,6 @@ public class SortTest
 		randomInitialize(array, rand);
 		printArray(array);
 */
-
 	}
 
 	public static void randomInitialize(int[] a, Random rand)
