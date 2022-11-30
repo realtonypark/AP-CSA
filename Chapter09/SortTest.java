@@ -34,12 +34,13 @@ public class SortTest
 		printArray(array);
 		InsertionSort.sortDescending(array);
 		printArray(array);
+		System.out.println();
 
 		System.out.println("Merge Sort...");
 		MergeSort.sortAscending(array);
 		printArray(array);
-		IMergeSort.sortDescending(array);
-		printArray(array);
+		//IMergeSort.sortDescending(array);
+		//printArray(array);
 /*
 		randomInitialize(array, rand);
 		printArray(array);
