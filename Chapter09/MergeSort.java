@@ -10,9 +10,10 @@ public class MergeSort
 
     private static void mergeSort(int[] arr, int start, int end, boolean ad){
         if(start < end){
-            int mid = (start+end)/2;
+            int mid = (start + end) / 2;
             mergeSort(arr, start, mid, ad);
             mergeSort(arr, mid+1, end, ad);
+
             if(ad)
                 mergeAscending(arr, start, mid, end);
             else
@@ -22,7 +23,7 @@ public class MergeSort
 
 	private static void mergeAscending(int[] arr, int start, int mid, int end){
         int[] temp = new int[arr.length];
-        for(int i=0; i<arr.length; i++)
+        for(int i = 0; i < arr.length; i++)
             temp[i] = arr[i];
 
         int part1 = start;
@@ -38,16 +39,17 @@ public class MergeSort
                 arr[index] = temp[part2];
                 part2++;
             }
+
             index++;
         }
 
-        for(int i=0; i<=mid - part1; i++)
+        for(int i = 0; i <= mid - part1; i++)
             arr[index+i] = temp[part1+i];
     }
 
     private static void mergeDescending(int[] arr, int start, int mid, int end){
         int[] temp = new int[arr.length];
-        for(int i=0; i<arr.length; i++)
+        for(int i = 0; i < arr.length; i++)
             temp[i] = arr[i];
 
         int part1 = start;
@@ -63,10 +65,11 @@ public class MergeSort
                 arr[index] = temp[part2];
                 part2++;
             }
+            
             index++;
         }
 
-        for(int i=0; i<=mid - part1; i++)
+        for(int i = 0; i <= mid - part1; i++)
             arr[index+i] = temp[part1+i];
     }
 }
