@@ -9,6 +9,10 @@ public class Sort {
         Insertion.sort(arr);
         System.out.println("...Insertion Sort...");
         printArray(arr);
+
+        Merge.sort(arr);
+        System.out.println("...Merge Sort...");
+        printArray(arr);
     }
 
     private static void printArray(int[] a){
