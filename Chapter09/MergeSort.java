@@ -39,7 +39,6 @@ public class MergeSort
                 arr[index] = temp[part2];
                 part2++;
             }
-
             index++;
         }
 
@@ -53,7 +52,7 @@ public class MergeSort
             temp[i] = arr[i];
 
         int part1 = start;
-        int part2 = mid+1;
+        int part2 = mid + 1;
         int index = start;
 
         while(part1 <= mid && part2 <= end){
@@ -65,7 +64,7 @@ public class MergeSort
                 arr[index] = temp[part2];
                 part2++;
             }
-            
+
             index++;
         }
 

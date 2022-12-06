@@ -16,12 +16,13 @@ public class SortTest
 		array = new int[size];
 		for(int i = 0; i < array.length; i++)
 			array[i] = i + 1;
-		printArray(array);
+		//printArray(array);
 
 		randomInitialize(array, rand);
-		printArray(array);
-		System.out.println();
+		//printArray(array);
+		//System.out.println();
 
+		/*
 		System.out.println("Selection Sort...");
 		SelectionSort.sortAscending(array);
 		printArray(array);
@@ -35,12 +36,14 @@ public class SortTest
 		InsertionSort.sortDescending(array);
 		printArray(array);
 		System.out.println();
-
+		*/
+		
 		System.out.println("Merge Sort...");
 		MergeSort.sortAscending(array);
 		printArray(array);
 		MergeSort.sortDescending(array);
 		printArray(array);
+
 /*
 		randomInitialize(array, rand);
 		printArray(array);
