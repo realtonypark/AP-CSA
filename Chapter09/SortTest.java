@@ -44,6 +44,17 @@ public class SortTest
 		MergeSort.sortDescending(array);
 		printArray(array);
 
+		System.out.println("Quick Sort...");
+		//int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		//QuickSort.sort(a);
+		//printArray(a);
+		//QuickSort.sort(array);
+		//printArray(array);
+		QuickSort.sortAscending(array);
+		printArray(array);
+		QuickSort.sortDescending(array);
+		printArray(array);
+
 /*
 		randomInitialize(array, rand);
 		printArray(array);
