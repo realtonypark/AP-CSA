@@ -1,88 +1,40 @@
 public class QuickSort {
     public static void sortAscending(int[] arr){
-        quickSortA(arr, 0, arr.length-1);
+        quickSort(arr, 0, arr.length-1);
 	}
-    public static void sortDescending(int[] arr){
-        quickSortD(arr, 0, arr.length-1);
+
+    public static void quickSort(int[] a, int start, int end){
+        if(start >= end)
+			return;
+
+        int p = partition(a, start, end);
+        quickSort(a, start, p-1);
+        quickSort(a, p+1, end);    
 	}
-    /*
-    public static void quickSortA(int[] arr, int left, int right){
-        if(left<right){
-            int pivot = (right-left)/2;
 
-             do{
-                while(arr[left]< arr[pivot])
-                    left++;
-
-                while(arr[right]>arr[pivot])
-                    right--;
-
-                if(left<=right){
-                    int temp = arr[left];
-                    arr[left] = arr[right];
-                    arr[right] = temp;
-                    left++;
-                    right--;
-                }
-
-                } while(left<=right);
-
-        quickSort(arr, left, pivot-1);
-        quickSort(arr, pivot+1, right);
-        }
-	}
-    */
-    public static void quickSortA(int[] arr, int left, int right){
-        if(left>=right)
-            return;
-            
-        int pivot = (right-left)/2;
-
-        do{
-            while(arr[left]< arr[pivot])
-                left++;
-
-            while(arr[right]>arr[pivot])
-                right--;
-
-            if(left<=right){
-                int temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
-                left++;
-                right--;
+    private static int partition(int[] arr, int d, int u){
+        int down = d;
+        int up = u;
+        int pivot = arr[d];
+        while(down<up){
+            while(arr[up]>pivot && down<up){
+                up--;
+                //System.out.println(up);
             }
-
-        } while(left<=right);
-
-        quickSortA(arr, left, pivot-1);
-        quickSortA(arr, pivot+1, right);
-        
-	}
-
-    public static void quickSortD(int[] arr, int left, int right){
-        if(left<right){
-            int pivot = (right-left)/2;
-
-             do{
-                while(arr[left]> arr[pivot])
-                    left++;
-
-                while(arr[right]<arr[pivot])
-                    right--;
-
-                if(left<=right){
-                    int temp = arr[left];
-                    arr[left] = arr[right];
-                    arr[right] = temp;
-                    left++;
-                    right--;
-                }
-
-                } while(left<=right);
-
-        quickSortD(arr, left, pivot-1);
-        quickSortD(arr, pivot+1, right);
+            while(arr[down]<=pivot && down<up){
+                down++;
+                //System.out.println(d);
+                //System.out.println(down);
+            }
+            swap(arr, down, up);
         }
+        swap(arr, d, down);
+        return down;
+    }
+
+    private static void swap(int[] ad, int i, int j) {
+		int temp = ad[i];
+		ad[i] = ad[j];
+		ad[j] = temp;
 	}
 }

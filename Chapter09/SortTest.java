@@ -36,24 +36,27 @@ public class SortTest
 		InsertionSort.sortDescending(array);
 		printArray(array);
 		System.out.println();
-		*/
 		
+		*/
 		System.out.println("Merge Sort...");
 		MergeSort.sortAscending(array);
 		printArray(array);
 		MergeSort.sortDescending(array);
 		printArray(array);
+		
 
 		System.out.println("Quick Sort...");
-		//int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-		//QuickSort.sort(a);
-		//printArray(a);
-		//QuickSort.sort(array);
-		//printArray(array);
 		QuickSort.sortAscending(array);
 		printArray(array);
-		QuickSort.sortDescending(array);
-		printArray(array);
+		//QuickSort.sortDescending(array);
+		//printArray(array);
+
+		//int[] list = {5, 2, 10, 3, 9, 1, 7, 8, 4, 6};
+		//QuickSort.sortAscending(list);
+		//printArray(list);
+
+		//QuickSort.sortAscendingNew(array);
+		//printArray(array);
 
 /*
 		randomInitialize(array, rand);
@@ -68,7 +71,7 @@ public class SortTest
 
 	public static void randomInitialize(int[] a, Random rand)
 	{
-		rand = new Random(1);
+		rand = new Random(2);
 		for(int i = a.length - 1; i > 0; i--)
 		{
 			int swap = rand.nextInt(i);
