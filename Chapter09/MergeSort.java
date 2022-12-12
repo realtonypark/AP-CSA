@@ -42,6 +42,7 @@ public class MergeSort
             index++;
         }
 
+        //The most important part of the code!!!!!!!!!!!!!!!!
         for(int i = 0; i <= mid - part1; i++)
             arr[index+i] = temp[part1+i];
     }

@@ -8,7 +8,8 @@ public class QuickSort {
 			return;
 
         int p = partition(a, start, end);
-        quickSort(a, start, p-1);
+        //quickSort(a, start, p-1);
+        quickSort(a, start, p);
         quickSort(a, p+1, end);    
 	}
 
@@ -17,20 +18,17 @@ public class QuickSort {
         int up = u;
         int pivot = arr[d];
         while(down<up){
-            while(arr[up]>pivot && down<up){
+            while(arr[up]>pivot && down<up)
                 up--;
-                //System.out.println(up);
-            }
-            while(arr[down]<=pivot && down<up){
+            while(arr[down]<=pivot && down<up)
                 down++;
-                //System.out.println(d);
-                //System.out.println(down);
-            }
             swap(arr, down, up);
         }
         swap(arr, d, down);
         return down;
     }
+
+    //private static int partitionFor(int[] arr, int d, int u){}
 
     private static void swap(int[] ad, int i, int j) {
 		int temp = ad[i];

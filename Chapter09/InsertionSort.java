@@ -26,7 +26,7 @@ public class InsertionSort
             while (j >= 0 && key < a[j]) 
             {
                 a[j + 1] = a[j];
-                --j;
+                j--;
             }
 
             // Place key at after the element just smaller than it.
@@ -49,7 +49,7 @@ public class InsertionSort
             while (j >= 0 && key > a[j]) 
             {
                 a[j + 1] = a[j];
-                --j;
+                j--;
             }
 
             // Place key at after the element just smaller than it.

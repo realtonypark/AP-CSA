@@ -22,7 +22,7 @@ public class SortTest
 		//printArray(array);
 		//System.out.println();
 
-		/*
+		/* 
 		System.out.println("Selection Sort...");
 		SelectionSort.sortAscending(array);
 		printArray(array);
@@ -37,14 +37,14 @@ public class SortTest
 		printArray(array);
 		System.out.println();
 		
-		*/
+		
 		System.out.println("Merge Sort...");
 		MergeSort.sortAscending(array);
 		printArray(array);
 		MergeSort.sortDescending(array);
 		printArray(array);
-		
-
+        System.out.println();
+		*/
 		System.out.println("Quick Sort...");
 		QuickSort.sortAscending(array);
 		printArray(array);
