@@ -57,7 +57,7 @@ public class Matrix {
         else System.exit(0);
         return x;
     }
-    
+
     public Matrix subtract(Matrix a){
         Matrix x = new Matrix(this.myRows, this.myCols);
         if(this.myRows == a.myRows && this.myCols == a.myCols){
@@ -65,20 +65,20 @@ public class Matrix {
                 for(int j = 0; j < this.myCols; j++){
                     x.myMatrix[i][j] = this.myMatrix[i][j] - a.myMatrix[i][j];
                 }
-            }    
+            }
         }
         else System.exit(0);
         return x;
     }
 
     public Matrix multiply(Matrix a){
-        Matrix x = new Matrix(this.myRows, this.myCols);
-        if(this.myRows == a.myRows && this.myCols == a.myCols){
-            for(int i = 0; i < this.myRows; i++){
-                for(int j = 0; j < this.myCols; j++){
-                    x.myMatrix[i][j] = this.myMatrix[i][j] - a.myMatrix[i][j];
+        Matrix x = new Matrix(this.myRows, this.myRows);
+        if(this.myCols == a.myRows){
+            for(int i = 0; i < this.myCols; i++){
+                for(int j = 0; j < this.myRows; j++){
+                    x.myMatrix[i][i] += this.myMatrix[i][j] * a.myMatrix[j][i];
                 }
-            }    
+            }
         }
         else System.exit(0);
         return x;

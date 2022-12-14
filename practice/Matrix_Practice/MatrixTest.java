@@ -11,9 +11,9 @@ public class MatrixTest {
         //Matrix 사칙연산: 덧셈, 뺄셈, 곱셈 ...
         mat1.add(mat2).printMat();
         mat1.subtract(mat2).printMat();
-        mat1.subtract(mat2).printMat();
+        mat1.multiply(mat2).printMat();
 
         //Matrix 사칙연산 검증
-        
+
     }
 }
