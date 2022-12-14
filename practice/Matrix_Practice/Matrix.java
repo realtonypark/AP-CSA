@@ -14,7 +14,8 @@ public class Matrix {
         myCols = col;
         myMatrix = new double[myRows][myCols];
     }
-
+    
+    //Matrix 출력
     public void printMat() {
         for(double[] i : this.myMatrix){
             for(double j : i)
@@ -24,6 +25,7 @@ public class Matrix {
         System.out.println();
     }
 
+    //Matrix 초기화
     public void initialize(int x) {
         for(int i = 0; i < this.myMatrix.length; i++){
             for(int j = 0; j < this.myMatrix[i].length; j++){
@@ -32,6 +34,7 @@ public class Matrix {
         }
     }
 
+    //Identity matrix 만들기
     public void identify(){
         for(int i = 0; i < this.myMatrix.length; i++){
             for(int j = 0; j < this.myMatrix[i].length; j++){
@@ -39,5 +42,45 @@ public class Matrix {
                     this.myMatrix[i][j] = 1;
             }
         }
+    }
+
+    //Matrix 덧셈
+    public Matrix add(Matrix a){
+        Matrix x = new Matrix(this.myRows, this.myCols);
+        if(this.myRows == a.myRows && this.myCols == a.myCols){
+            for(int i = 0; i < this.myRows; i++){
+                for(int j = 0; j < this.myCols; j++){
+                    x.myMatrix[i][j] = this.myMatrix[i][j] + a.myMatrix[i][j];
+                }
+            }    
+        }
+        else System.exit(0);
+        return x;
+    }
+    
+    public Matrix subtract(Matrix a){
+        Matrix x = new Matrix(this.myRows, this.myCols);
+        if(this.myRows == a.myRows && this.myCols == a.myCols){
+            for(int i = 0; i < this.myRows; i++){
+                for(int j = 0; j < this.myCols; j++){
+                    x.myMatrix[i][j] = this.myMatrix[i][j] - a.myMatrix[i][j];
+                }
+            }    
+        }
+        else System.exit(0);
+        return x;
+    }
+
+    public Matrix multiply(Matrix a){
+        Matrix x = new Matrix(this.myRows, this.myCols);
+        if(this.myRows == a.myRows && this.myCols == a.myCols){
+            for(int i = 0; i < this.myRows; i++){
+                for(int j = 0; j < this.myCols; j++){
+                    x.myMatrix[i][j] = this.myMatrix[i][j] - a.myMatrix[i][j];
+                }
+            }    
+        }
+        else System.exit(0);
+        return x;
     }
 }
