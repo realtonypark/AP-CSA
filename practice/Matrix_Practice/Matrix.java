@@ -1,3 +1,6 @@
+import java.lang.Math;
+import java.util.Random;
+
 public class Matrix {
     public double[][] myMatrix;
     public int myRows;
@@ -34,6 +37,25 @@ public class Matrix {
         }
     }
 
+    //Matrix 랜덤 초기화
+    public void initializeRandom(int min, int max){
+        for(int i = 0; i < this.myMatrix.length; i++){
+            for(int j = 0; j < this.myMatrix[i].length; j++){
+                this.myMatrix[i][j] = min + (int) (Math.random() * (max-min+1));
+            }
+        }
+    }
+    /*
+    public void initializeRandom(int min, int max){
+        Random random = new Random(2);
+        for(int i = 0; i < this.myMatrix.length; i++){
+            for(int j = 0; j < this.myMatrix[i].length; j++){
+                this.myMatrix[i][j] = min + random.nextInt(max - min+1);
+            }
+        }
+    }
+    */
+    
     //Identity matrix 만들기
     public void identify(){
         for(int i = 0; i < this.myMatrix.length; i++){
@@ -83,4 +105,6 @@ public class Matrix {
         else System.exit(0);
         return x;
     }
+
+    
 }
