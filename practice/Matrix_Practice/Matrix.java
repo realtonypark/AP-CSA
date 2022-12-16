@@ -80,6 +80,7 @@ public class Matrix {
         return x;
     }
 
+    //Matrix 뺼셈
     public Matrix subtract(Matrix a){
         Matrix x = new Matrix(this.myRows, this.myCols);
         if(this.myRows == a.myRows && this.myCols == a.myCols){
@@ -92,7 +93,8 @@ public class Matrix {
         else System.exit(0);
         return x;
     }
-
+    
+    //Matrix 곱셈
     public Matrix multiply(Matrix a){
         Matrix x = new Matrix(this.myRows, this.myRows);
         if(this.myCols == a.myRows){
@@ -106,5 +108,14 @@ public class Matrix {
         return x;
     }
 
+    //Matrix Gaussian Elimination
+    //public Matrix gaussianElimination(Matrix x){}
     
+    //Comparing Floating-Point Numbers
+    public static boolean compareFloats(double x, double y){
+        if(Math.abs(x-y) <= Math.pow(10, -16) * Math.max(Math.abs(x), Math.abs(y)))
+            return true;
+        else 
+            return false;
+    }
 }
