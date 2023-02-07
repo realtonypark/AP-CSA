@@ -22,7 +22,7 @@ public class Matrix {
     public void printMat() {
         for(double[] i : this.myMatrix){
             for(double j : i)
-                System.out.print((int) j + " ");
+                System.out.print(j + " ");
             System.out.println();
         }
         System.out.println();
@@ -95,6 +95,7 @@ public class Matrix {
     }
     
     //Matrix 곱셈
+    /*
     public Matrix multiply(Matrix a){
         Matrix x = new Matrix(this.myRows, this.myRows);
         if(this.myCols == a.myRows){
@@ -107,9 +108,21 @@ public class Matrix {
         else System.exit(0);
         return x;
     }
-
-    //Matrix Gaussian Elimination
-    //public Matrix gaussianElimination(Matrix x){}
+    */
+    public Matrix multiply(Matrix a){
+        Matrix x = new Matrix(this.myRows, this.myRows);
+        if(this.myCols == a.myRows){
+            for(int i = 0; i < this.myRows; i++){
+                for(int j = 0; j < a.myRows; j++){
+                    for(int k = 0; k < a.myRows; k++)
+                        x.myMatrix[i][j] += this.myMatrix[i][k] * this.myMatrix[k][j];
+                }
+            }
+        }
+        else System.exit(0);
+        return x;
+    }
+    
     
     //Comparing Floating-Point Numbers
     public static boolean compareFloats(double x, double y){
@@ -117,5 +130,37 @@ public class Matrix {
             return true;
         else 
             return false;
+    }
+
+
+    //Gaussian Elimination
+
+    //multiply ath row by double b
+    public void multipylyRow(int a, double b){
+        for(int i = 0; i < this.myCols; i++){
+            this.myMatrix[a][i] *= b;
+        }
+    }
+    
+    //switch ath row and bth row
+    public void switchRow(int a, int b){
+        double[] temp = new double[this.myCols];
+        for(int i = 0; i < this.myCols; i++){
+            temp[i] = this.myMatrix[a][i];
+            this.myMatrix[a][i] = this.myMatrix[b][i];
+            this.myMatrix[b][i] = temp[i];
+        }
+    }
+
+    //subtract bth row from ath row
+    public void subtractRow(int a, int b) {
+        for (int i = 0; i < this.myCols; i++)
+            this.myMatrix[a][i] -= this.myMatrix[b][i];
+    }
+
+    //Method overloading - subtract bth row multiplied by c from ath row
+    public void subtractRow(int a, int b, double c) {
+        for (int i = 0; i < this.myCols; i++)
+            this.myMatrix[a][i] -= c * this.myMatrix[b][i];
     }
 }

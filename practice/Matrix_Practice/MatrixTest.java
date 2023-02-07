@@ -1,5 +1,6 @@
 public class MatrixTest {
     public static void main(String[] args){
+        /*
         //Matrix 만들기, 초기화
         Matrix mat1 = new Matrix();
         mat1.initialize(7);
@@ -19,8 +20,17 @@ public class MatrixTest {
         mat1.add(mat3).printMat();
         mat1.subtract(mat3).printMat();
         mat1.multiply(mat3).printMat();
+        */
 
-        //Matrix 사칙연산 검증  
+        Matrix mat1 = new Matrix(5, 5);
+        mat1.initializeRandom(0, 7);
+        mat1.printMat();
+        mat1.switchRow(0, 1);
+        mat1.printMat();
+        mat1.multipylyRow(2, 2);
+        mat1.printMat();
+        mat1.subtractRow(3, 4, 0.5);
+        mat1.printMat();
 
     }
 }
